@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.robotdreams.patterns</groupId>
+    <artifactId>Patterns</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>Lesson01</module>
+        <module>Lesson01/Theory01</module>
+        <module>Lesson02</module>
+        <module>Lesson02/Homework02</module>
+        <module>Lesson02/Theory02</module>
+        <module>Lesson03</module>
+        <module>Lesson03/Homework03</module>
+        <module>Lesson03/Theory03</module>
+        <module>Lesson04</module>
+        <module>Lesson04/Homework04</module>
+        <module>Lesson05</module>
+        <module>Lesson05/Homework05</module>
+        <module>Lesson05/Theory05</module>
+        <module>Lesson06</module>
+        <module>Lesson06/Theory06</module>
+        <module>Lesson06/Homework06</module>
+        <module>Lesson07</module>
+        <module>Lesson07/Theory07</module>
+        <module>Lesson07/Homework07</module>
+        <module>Lesson08</module>
+        <module>Lesson08/Theory08</module>
+        <module>Lesson09</module>
+        <module>Lesson09/Theory09</module>
+        <module>Lesson09/Homework09</module>
+        <module>Lesson10</module>
+        <module>Lesson10/Homework10</module>
+        <module>Lesson10/Theory10</module>
+        <module>Lesson11</module>
+        <module>Lesson11/Theory11</module>
+        <module>Lesson11/Homework11</module>
+        <module>Lesson12</module>
+        <module>Lesson13</module>
+        <module>Lesson14</module>
+        <module>Lesson15.CourseWork</module>
+        <module>Lesson08/Homework08</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+    </properties>
+
+</project>
