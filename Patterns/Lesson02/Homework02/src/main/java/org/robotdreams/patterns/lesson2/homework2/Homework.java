@@ -1,12 +1,11 @@
 package org.robotdreams.patterns.lesson2.homework2;
 
 public class Homework {
-
     public static void main(String[] args) {
         System.out.println("Starting Homework 02");
 
         new Task01SafeDelete(10, 20).execute(42);
-        new Task02Rename(20).call(11);
+        new Executor(20).execute(11);
         new Task03Extract(20).execute(11);
         new Task04Inline(20).execute(11);
     }
@@ -14,7 +13,6 @@ public class Homework {
 
 /* TODO: Task 01: apply SafeDelete refactorings to not used code parts */
 class Task01SafeDelete {
-
     private final int usedInput;
     private final int unusedInput;
 
@@ -30,77 +28,54 @@ class Task01SafeDelete {
     private void print(String operation, int usedParam, int unusedParam) {
         System.out.println("SafeDeleteExample " + operation + " with " + usedParam);
     }
-
-    // private void printTest(int usedParam, int unusedParam) {
-    //     System.out.println("SafeDeleteExample received 0");
-    // }
 }
 
 /* TODO: Task 02: apply Rename refactorings as specified in comments */
-class Task02Rename { // rename class name also considering the name in string
+class Executor {
+    private final int initialConfig;
 
-    private final int usedInput;
+    public Executor(int initialInput) {
+        this.initialConfig = initialInput;
+        System.out.println("Executor initialized with " + initialInput);
+    }
 
-    public Task02Rename(int input){
-            this.usedInput = input; // rename field to match parameter name
-
-            System.out.println("Task02Rename initialized with " + input);
-        }
-
-        // rename method from "call" to "execute"
-        public void call(int i) { // rename parameter "i" to "param"
-            System.out.println("Task02Rename executed with " + i);
-        }
+    public void execute(int param) {
+        System.out.println("Executor executed with " + param);
+    }
 }
 
 /* TODO: Task 03: apply extract refactorings as specified in comments */
 class Task03Extract {
-
     private final int first;
+    private static final int THE_ANSWER_TO_THE_ULTIMATE_QUESTION = 42;
 
     public Task03Extract(int first){
         this.first = first;
     }
+
     public void execute(int second) {
-        print("add",
-                first,
-                second,
-                /* Extract to method named add */
-                first + second
-        );
-        print("add",
-                42, /* introduce constant named THE_ANSWER_TO_THE_ULTIMATE_QUESTION */
-                second,
-                /* Extract to method named add */
-                42 + second
-        );
+        add(first, second);
+        add(THE_ANSWER_TO_THE_ULTIMATE_QUESTION, second);
+        subtract(first, second);
+        subtract(THE_ANSWER_TO_THE_ULTIMATE_QUESTION, second);
+        multiply(first, second);
+        divide(first, second);
+    }
 
-        print("subtract",
-                first,
-                second,
-                /* Extract to method named subtract */
-                first - second
-        );
+    private void add(int a, int b) {
+        print("add", a, b, a + b);
+    }
 
-        print("subtract",
-                42, /* this should automatically be refactored by the "introduce constant" change */
-                second,
-                /* Extract to method named subtract */
-                42 - second
-        );
+    private void subtract(int a, int b) {
+        print("subtract", a, b, a - b);
+    }
 
-        print("multiply",
-                first,
-                second,
-                /* Extract to method named multiply */
-                first * second
-        );
-        print("divide",
-                first,
-                second,
-                /* Extract to method named divide */
-                first / second
-        );
+    private void multiply(int a, int b) {
+        print("multiply", a, b, a * b);
+    }
+
+    private void divide(int a, int b) {
+        print("divide", a, b, a / b);
     }
 
     private void print(String name, int a, int b, int result) {
@@ -110,21 +85,12 @@ class Task03Extract {
 
 /* TODO: Task 04: apply inline refactorings as specified in comments */
 class Task04Inline {
-
-    // inline field
-    private final int first;
-
     public Task04Inline(int first){
-        this.first = first;
-
-        print("initialized", first);
+        System.out.println("Task04Inline initialized with " + first);
+        execute(first);
     }
+
     public void execute(int second) {
-        print("executed", second);
-    }
-
-    // inline method "print"
-    private void print(String operation, int param) {
-        System.out.println("Task04Inline " + operation + " with " + param);
+        System.out.println("Task04Inline executed with " + second);
     }
 }
