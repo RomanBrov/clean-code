@@ -4,7 +4,6 @@ public class ElectricEngineFactory {
     private final ElectricEngine electricEngine;
 
     public ElectricEngineFactory(ElectricEngine electricEngine) {
-
         this.electricEngine = electricEngine;
     }
 

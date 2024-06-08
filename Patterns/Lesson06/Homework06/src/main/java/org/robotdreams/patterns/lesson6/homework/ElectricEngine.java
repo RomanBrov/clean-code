@@ -8,7 +8,6 @@ public class ElectricEngine implements Engine {
     }
 
     public void startEngine() {
-
         System.out.printf("Electric engine with %d hp has been started%n", this.hp);
     }
 }

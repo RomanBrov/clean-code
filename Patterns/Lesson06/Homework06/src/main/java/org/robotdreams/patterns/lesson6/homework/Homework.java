@@ -6,9 +6,9 @@ public class Homework {
 
     public static void main(String[] args) {
         System.out.println("Starting Homework #06");
-        System.out.printf("Author: %s%n", "TODO: Your Name or Nickname here");
+        System.out.printf("Author: %s%n", "Roman Martsenko");
 
-        Car car = new Car("Mercedes", "SLS AMG", new DieselEngine(), 2022);
+        Car car = new Car("Toyota", "Supra", new DieselEngine(), 2023);
 
         car.start();
 
@@ -16,22 +16,27 @@ public class Homework {
 
         AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);
 
-        // registration, option #2
-        //appContext.register(DieselEngine.class);
-        // TODO: add missing registrations
+        appContext.register(DieselEngine.class);
+        appContext.register(ElectricEngine.class);
+        appContext.register(DieselEngineFactory.class);
+        appContext.register(ElectricEngineFactory.class);
+        appContext.register(Car.class);
+        appContext.register(CarFactory.class);
 
         System.out.println("Spring context initialized");
 
         DieselEngine dieselEngine = appContext.getBean(DieselEngine.class);
-        dieselEngine.setHp(333);
+        dieselEngine.setHp(345);
 
         // test DI works
         dieselEngine.startEngine();
 
         CarFactory carFactory = (CarFactory) appContext.getBean("carFactory");
 
-        carFactory.getCar("TODO: your diesel car option", "TODO", 2020, 170).start();
-        carFactory.getCar("TODO: your electric car option", "TODO", 2015, 259).start();
+        carFactory.getCar("Nissan", "Leaf", 2021, 340).start();
+        carFactory.getCar("Honda", "Fit", 2022, 150).start();
+
+        carFactory.getCar("Chevrolet", "Camaro", 2024, 455).start();
+        carFactory.getCar("Jeep", "Wrangler", 2018, 285).start();
     }
 }
-
