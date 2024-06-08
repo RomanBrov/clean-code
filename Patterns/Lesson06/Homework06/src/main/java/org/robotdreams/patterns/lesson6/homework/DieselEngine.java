@@ -8,7 +8,6 @@ public class DieselEngine implements Engine {
     }
 
     public void startEngine() {
-
         System.out.printf("Diesel engine with %d hp has been started%n", this.hp);
     }
 }

@@ -10,19 +10,9 @@ public class CarFactory {
     }
 
     public Car getCar(String make, String model, int year, int hp) {
-        if (make != "Tesla")
-            return new Car(
-                    make,
-                    model,
-                    this.dieselEngineFactory.getEngine(hp),
-                    year
-            );
-
-        return new Car(
-                make,
-                model,
-                this.electricEngineFactory.getEngine(hp),
-                year
-        );
+        return switch (make) {
+            case "Nissan", "Honda" -> new Car(make, model, this.electricEngineFactory.getEngine(hp), year);
+            default -> new Car(make, model, this.dieselEngineFactory.getEngine(hp), year);
+        };
     }
 }

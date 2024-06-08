@@ -14,7 +14,7 @@ public class Car {
     }
 
     public void start() {
-        System.out.println("Starting %s %s car, manufactured %d".formatted(this.make, this.model, this.year));
+        System.out.printf("Starting %s %s car, manufactured %d%n", this.make, this.model, this.year);
         this.engine.startEngine();
     }
 }
